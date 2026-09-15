@@ -1,0 +1,8 @@
+{
+  "clientId": "",
+  "scope": "",
+  "orgName": "",
+  "tenantName": "",
+  "baseUrl": "",
+  "redirectUri": "http://localhost:5173"
+}
