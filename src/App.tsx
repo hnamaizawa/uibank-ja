@@ -17,8 +17,44 @@ import Help from './pages/Help';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 
+// UiPath アカウントへのサインインを必須にするかどうか。
+// このアプリは Orchestrator / Data Fabric などの UiPath API を呼び出していないため、
+// false のままでも動作する。true に戻せばすぐにサインインゲートを復元できる。
+const REQUIRE_UIPATH_LOGIN = false;
+
+function AppRoutes() {
+  return (
+    <BankAuthProvider>
+      <BrowserRouter basename={getAppBase()}>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Navigate to="/welcome" replace />} />
+            <Route path="/welcome" element={<Welcome />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register-account" element={<Register />} />
+            <Route path="/password-request" element={<PasswordRequest />} />
+            <Route path="/loans" element={<Loans />} />
+            <Route path="/loans/apply" element={<LoanApply />} />
+            <Route path="/loans/result" element={<LoanResult />} />
+            <Route path="/credit-cards" element={<CreditCards />} />
+            <Route path="/credit-cards/apply" element={<CreditCardApply />} />
+            <Route path="/mobile-banking" element={<MobileBanking />} />
+            <Route path="/help" element={<Help />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </BankAuthProvider>
+  );
+}
+
 function Gate() {
   const { isAuthenticated, isLoading, error, login } = useAuth();
+
+  if (!REQUIRE_UIPATH_LOGIN) {
+    return <AppRoutes />;
+  }
 
   if (isLoading) {
     return (
@@ -50,30 +86,7 @@ function Gate() {
     );
   }
 
-  return (
-    <BankAuthProvider>
-      <BrowserRouter basename={getAppBase()}>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Navigate to="/welcome" replace />} />
-            <Route path="/welcome" element={<Welcome />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register-account" element={<Register />} />
-            <Route path="/password-request" element={<PasswordRequest />} />
-            <Route path="/loans" element={<Loans />} />
-            <Route path="/loans/apply" element={<LoanApply />} />
-            <Route path="/loans/result" element={<LoanResult />} />
-            <Route path="/credit-cards" element={<CreditCards />} />
-            <Route path="/credit-cards/apply" element={<CreditCardApply />} />
-            <Route path="/mobile-banking" element={<MobileBanking />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-    </BankAuthProvider>
-  );
+  return <AppRoutes />;
 }
 
 function App() {

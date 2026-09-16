@@ -99,7 +99,13 @@ uip admin external-apps create "UiBank JA" \
 npm run dev
 ```
 
-`http://localhost:5173` を開くと、まず UiPath アカウントでのサインインを求められます（Coded Web App としての必須動作）。サインイン後、日本語化された UiBank の画面が表示されます。
+`http://localhost:5173` を開くと、日本語化された UiBank の画面が表示されます。
+
+### UiPath アカウントへのサインインについて
+
+本アプリは Orchestrator / Data Fabric などの UiPath API を一切呼び出していないため、既定では UiPath アカウントへのサインインを不要にしています（[`src/App.tsx`](src/App.tsx) の `REQUIRE_UIPATH_LOGIN` を `false` に設定）。
+
+再びサインインを必須にしたい場合は、`REQUIRE_UIPATH_LOGIN` を `true` に変更するだけで元の「UiPath アカウントでサインイン」ゲートが復元されます（この場合は `uipath.json` に有効な `clientId` / `orgName` / `tenantName` / `baseUrl` の設定が必要です）。
 
 ## ビルド
 
