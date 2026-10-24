@@ -14,12 +14,15 @@ export default function Help() {
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-extrabold sm:text-4xl">お困りですか？</h1>
         <p className="mt-2 text-gray-600">私たちにお気軽にご連絡ください！</p>
+        <p role="note" className="mt-4 rounded border border-amber-300 bg-amber-50 p-3 text-sm font-semibold text-amber-950">
+          デモ専用です。実在する氏名・メールアドレス・相談内容は入力しないでください。フォーム内容は送信・保存されません。
+        </p>
       </div>
 
       {sent ? (
         <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-sm">
           <p className="font-semibold text-ink">
-            お問い合わせいただきありがとうございます。担当者よりご連絡いたします。
+            デモ表示です。お問い合わせ内容は送信されていません。
           </p>
         </div>
       ) : (
@@ -58,7 +61,7 @@ export default function Help() {
             type="submit"
             className="w-full rounded bg-brand py-2 font-bold text-white hover:bg-brand-dark"
           >
-            お問い合わせを送信する
+            デモ送信（実際には送信されません）
           </button>
         </form>
       )}
