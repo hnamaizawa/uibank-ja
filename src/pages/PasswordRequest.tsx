@@ -16,12 +16,12 @@ export default function PasswordRequest() {
       <BrandPanel backTo="/login">
         <h1 className="mb-2 text-3xl font-extrabold">パスワードの再設定</h1>
         <p className="mb-6 text-white/90">
-          パスワード再設定用のリンクをお送りしますので、登録済みのメールアドレスを入力してください。
+          デモ専用です。実際のメールアドレスやパスワードは入力しないでください。再設定メールは送信されず、入力内容も保存されません。
         </p>
 
         {sent ? (
           <p className="rounded bg-white/15 p-4 text-white">
-            入力いただいたメールアドレスに再設定用のリンクを送信しました。
+            デモ表示です。再設定メールは送信されていません。
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 text-white">
