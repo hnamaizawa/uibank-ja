@@ -27,6 +27,9 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-sm space-y-4 text-white">
+      <p role="note" className="rounded border border-white/40 bg-black/20 p-3 text-sm font-semibold">
+        デモ専用です。実際の銀行のユーザー名やパスワードは入力しないでください。パスワードは認証・送信・保存されず、ユーザー名はこのタブのセッション中だけ保存されます。
+      </p>
       <div>
         <label className="mb-1 block text-sm font-semibold">ユーザー名</label>
         <input
@@ -38,7 +41,7 @@ export default function LoginForm() {
         />
       </div>
       <div>
-        <label className="mb-1 block text-sm font-semibold">パスワード</label>
+        <label className="mb-1 block text-sm font-semibold">パスワード（ダミー入力のみ）</label>
         <input
           type="password"
           value={password}

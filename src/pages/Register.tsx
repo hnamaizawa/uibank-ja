@@ -36,9 +36,8 @@ export default function Register() {
         </p>
 
         <div className="mb-6 rounded bg-white/15 p-4 text-sm leading-relaxed text-white">
-          UiBank はデモンストレーション専用のアプリケーションです。実際に必要な情報はメールアドレスのみで、
-          登録確認および今後のパスワード再設定に使用します。このフォームの他の項目、および
-          アプリ内の他のすべての項目にはダミーデータをご入力ください。
+          UiBank はデモンストレーション専用です。このフォームは登録処理やメール送信を行いません。
+          メールアドレス、パスワードを含め、実在する個人情報は入力せず、すべてダミーデータをご入力ください。
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4 text-white">
@@ -48,7 +47,7 @@ export default function Register() {
               <input type="email" required placeholder="メールアドレスを入力" className={inputClass} />
             </div>
             <div>
-              <label className={labelClass}>パスワード*</label>
+              <label className={labelClass}>パスワード（ダミー入力のみ）*</label>
               <input type="password" required placeholder="パスワード" className={inputClass} />
             </div>
           </div>

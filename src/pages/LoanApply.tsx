@@ -29,6 +29,9 @@ export default function LoanApply() {
         <p className="mb-6 text-white/90">
           ローンのお申し込みを進めるため、以下の項目にご入力ください。
         </p>
+        <p role="note" className="mb-6 rounded bg-black/20 p-3 text-sm font-semibold text-white">
+          デモ専用です。実在するメールアドレス、年収、年齢などの個人情報は入力しないでください。入力内容は送信されません。
+        </p>
 
         <form onSubmit={handleSubmit} className="space-y-4 text-white">
           <div>
